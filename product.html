@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masterpiece Specification | VHARAT MOOL</title>
+  <meta name="description" content="Detailed craftsmanship analysis, sizing parameters, and private procurement options for Vharat Mool luxury creations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="product-details">
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <span>BESPOKE CONCIERGE ASSISTANCE AVAILABLE FOR SIZING & CUSTOM DYES</span>
+      <div class="top-bar-links">
+        <a href="shop.html">&larr; Back to Collections</a>
+        <span>|</span>
+        <a href="admin.html">Admin Portal</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="brand-logo">
+        <span class="logo-accent">VHARAT</span> MOOL
+        <small class="tagline">HERITAGE LUXURY</small>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link active">Collections</a>
+        <a href="shop.html?category=men" class="nav-link">Men</a>
+        <a href="shop.html?category=women" class="nav-link">Women</a>
+        <a href="shop.html?category=watches" class="nav-link">Horology</a>
+        <a href="shop.html?category=accessories" class="nav-link">Bespoke Accessories</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box-wrapper">
+          <input type="text" id="searchInput" placeholder="Search handcrafted luxury..." autocomplete="off">
+          <button id="searchBtn" aria-label="Search Catalog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <button class="icon-btn" id="authBtn" aria-label="Account Access" onclick="openAuthModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+
+        <a href="cart.html" class="icon-btn cart-badge-wrap" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Details Breadcrumbs -->
+  <div class="container breadcrumbs-wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="shop.html">Registry</a>
+      <span>/</span>
+      <span id="breadcrumbCategory">Department</span>
+      <span>/</span>
+      <span id="breadcrumbCurrent" class="current">Masterpiece</span>
+    </nav>
+  </div>
+
+  <!-- Main Product Stage -->
+  <main class="container product-detail-layout" id="productStage">
+    <!-- Media Gallery Column -->
+    <div class="product-media-column">
+      <div class="main-image-viewport">
+        <img id="mainProductImage" src="" alt="Product Showcase" class="hero-product-img">
+        <span class="badge badge-sale product-badge-overlay" id="productBadgeOverlay">EXCLUSIVE</span>
+      </div>
+      <div class="thumbnail-strip" id="thumbnailStrip">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+
+    <!-- Specifications & Procurement Column -->
+    <div class="product-info-column">
+      <div class="product-header-block">
+        <span class="product-department" id="pCategory">DEPARTMENT</span>
+        <h1 class="product-title" id="pName">Artisanal Masterpiece</h1>
+        <div class="product-rating-row">
+          <div class="rating-stars" id="pStars">★★★★★</div>
+          <span class="rating-num" id="pRatingScore">(4.9 / 5.0)</span>
+          <span class="rating-reviews-count" id="pReviewCount">32 Authenticated Patron Reviews</span>
+        </div>
+      </div>
+
+      <!-- Price Box -->
+      <div class="price-display-block">
+        <div class="price-figures">
+          <span class="price-label">Investment:</span>
+          <span class="current-price-lg" id="pPrice">₹0</span>
+          <span class="old-price-lg" id="pOldPrice">₹0</span>
+        </div>
+        <div class="savings-tag" id="pDiscountTag">Save 20% Privilege</div>
+        <div class="tax-shipping-note">Inclusive of all duties, sovereign luxury taxes, and insured express delivery.</div>
+      </div>
+
+      <!-- Availability Indicator -->
+      <div class="stock-status-wrap">
+        <span class="stock-pill in-stock" id="pStockIndicator">● Atelier Verified: In Stock (7 Units Left)</span>
+      </div>
+
+      <!-- Description Block -->
+      <div class="product-description-wrap">
+        <p id="pDescription">Loading curated description...</p>
+      </div>
+
+      <!-- Variant Controls (Size & Color) -->
+      <div class="variants-block">
+        <!-- Color Selection -->
+        <div class="variant-group" id="colorVariantGroup">
+          <div class="variant-label-row">
+            <span class="variant-name">Heritage Color Shade:</span>
+            <span class="selected-variant-val" id="selectedColorLabel">Onyx Black</span>
+          </div>
+          <div class="color-swatches" id="colorSwatches">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="variant-group" id="sizeVariantGroup">
+          <div class="variant-label-row">
+            <span class="variant-name">Proportion / Fit:</span>
+            <a href="#size-guide" class="size-guide-btn" onclick="openSizeGuide(event)">View Atelier Sizing Guide</a>
+          </div>
+          <div class="size-selectors" id="sizeSelectors">
+            <!-- Injected via JavaScript -->
+          </div>
+        </div>
+
+        <!-- Quantity Selection -->
+        <div class="variant-group">
+          <span class="variant-name">Consignment Quantity:</span>
+          <div class="quantity-controller">
+            <button type="button" class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">-</button>
+            <input type="number" id="productQuantity" value="1" min="1" max="10" readonly>
+            <button type="button" class="qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-buttons-wrap">
+        <button class="btn btn-gold btn-lg" id="addToCartBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Add to Shopping Vault
+        </button>
+        <button class="btn btn-secondary btn-lg" id="buyNowBtn">Procure Now (Direct Checkout)</button>
+      </div>
+
+      <!-- Assurance Badges Accordion -->
+      <div class="assurance-accordion">
+        <details open>
+          <summary>Artisanal Specifications & Materials</summary>
+          <div class="accordion-content" id="pSpecs">
+            <ul>
+              <li>100% Genuine Certified Raw Materials.</li>
+              <li>Hand-woven or hand-finished in accredited Indian ateliers.</li>
+              <li>Individually inspected and stamped with the Vharat Mool seal.</li>
+            </ul>
+          </div>
+        </details>
+        <details>
+          <summary>Insured Transit & White-Glove Handover</summary>
+          <div class="accordion-content">
+            <p>Dispatched within 24 to 48 business hours via insured courier. Arrives sealed in tamper-evident velvet lined presentation cases.</p>
+          </div>
+        </details>
+        <details>
+          <summary>7-Day Concierge Exchange & Returns</summary>
+          <div class="accordion-content">
+            <p>If sizing or finish fails to delight, our concierge arranges prompt return pickup and tailored adjustment or complete credit refund.</p>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Related Recommendations -->
+  <section class="section bg-darker">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">COMPLEMENTARY ENSEMBLES</span>
+        <h2 class="section-title">Harmonious Pairings</h2>
+        <div class="gold-divider"></div>
+      </div>
+      <div class="product-grid" id="relatedProductsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <h3 class="footer-logo"><span class="logo-accent">VHARAT</span> MOOL</h3>
+        <p class="footer-desc">An artisanal haute-couture house celebrating the zenith of Indian handloom heritage, timeless horology, and modern tailored luxury.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="shop.html">Return to Registry</a></li>
+          <li><a href="cart.html">View Vault (Cart)</a></li>
+          <li><a href="admin.html">Guild Administration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Concierge Desk</h4>
+        <ul>
+          <li>Direct Line: +91 98765 43210</li>
+          <li>Email: concierge@vharatmool.com</li>
+          <li>Complimentary styling assistance on call.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 VHARAT MOOL LUXURY ATELIER PVT LTD. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <!-- Universal Modal System -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-dialog" id="modalDialog">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html
