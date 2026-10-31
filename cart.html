@@ -1,0 +1,205 @@
+</head>
+<body data-page="cart">
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <span>COMPLIMENTARY WHITE-GLOVE DELIVERY QUALIFIED ON ORDERS OVER ₹2,999</span>
+      <div class="top-bar-links">
+        <a href="shop.html">&larr; Return to Catalog</a>
+        <span>|</span>
+        <a href="admin.html">Admin Portal</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navbar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="brand-logo">
+        <span class="logo-accent">VHARAT</span> MOOL
+        <small class="tagline">HERITAGE LUXURY</small>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="shop.html" class="nav-link">Collections</a>
+        <a href="shop.html?category=men" class="nav-link">Men</a>
+        <a href="shop.html?category=women" class="nav-link">Women</a>
+        <a href="shop.html?category=watches" class="nav-link">Horology</a>
+        <a href="shop.html?category=accessories" class="nav-link">Bespoke Accessories</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="search-box-wrapper">
+          <input type="text" id="searchInput" placeholder="Search handcrafted luxury..." autocomplete="off">
+          <button id="searchBtn" aria-label="Search Catalog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <button class="icon-btn" id="authBtn" aria-label="Account Access" onclick="openAuthModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+
+        <a href="cart.html" class="icon-btn cart-badge-wrap active" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Header Banner -->
+  <section class="page-header page-header-compact">
+    <div class="container text-center">
+      <span class="section-tag">CONFIDENTIAL INVENTORY</span>
+      <h1 class="page-title">Your Acquisition Vault</h1>
+      <p class="page-lead">Inspect your reserved creations before preparing bespoke fulfillment.</p>
+    </div>
+  </section>
+
+  <!-- Cart Content Area -->
+  <main class="container cart-layout">
+    <!-- Active Cart Items View -->
+    <div class="cart-items-column" id="cartItemsContainer">
+      <div class="cart-table-header">
+        <span>Creation Details</span>
+        <span>Unit Investment</span>
+        <span>Quantity</span>
+        <span>Subtotal</span>
+        <span>Action</span>
+      </div>
+      
+      <div id="cartItemsList" class="cart-items-list">
+        <!-- Rendered dynamically by js/cart.js -->
+      </div>
+
+      <div class="cart-actions-row">
+        <a href="shop.html" class="btn btn-outline">&larr; Continue Exploring Catalog</a>
+        <button class="btn btn-text-danger" onclick="clearCart()">Empty Vault</button>
+      </div>
+    </div>
+
+    <!-- Empty Cart Fallback View -->
+    <div class="empty-cart-view hidden" id="emptyCartView">
+      <div class="empty-icon">❖</div>
+      <h2>Your Acquisition Vault is Empty</h2>
+      <p>No bespoke garments or horological pieces are currently reserved in your session.</p>
+      <a href="shop.html" class="btn btn-gold btn-lg">Explore Royal Collections</a>
+    </div>
+
+    <!-- Order Summary Column -->
+    <aside class="cart-summary-column" id="cartSummaryColumn">
+      <div class="summary-card">
+        <h3 class="summary-title">Vault Summary</h3>
+        <div class="gold-divider"></div>
+
+        <div class="summary-line">
+          <span>Gross Subtotal</span>
+          <span id="summarySubtotal">₹0</span>
+        </div>
+
+        <div class="summary-line text-gold">
+          <span>Patronage Privilege</span>
+          <span id="summaryDiscount">- ₹0</span>
+        </div>
+
+        <div class="summary-line">
+          <span>Insured Transit & Packaging</span>
+          <span id="summaryShipping">Calculated</span>
+        </div>
+
+        <div class="summary-line">
+          <span>Estimated Luxury Tax (GST 12%)</span>
+          <span id="summaryTax">Included</span>
+        </div>
+
+        <div class="gold-divider"></div>
+
+        <div class="summary-line total-line">
+          <span>Total Acquisition</span>
+          <span id="summaryGrandTotal" class="gold-text-highlight">₹0</span>
+        </div>
+
+        <!-- Voucher Code Input -->
+        <div class="voucher-box">
+          <label for="couponInput">Patronage Privilege Code</label>
+          <div class="voucher-input-group">
+            <input type="text" id="couponInput" placeholder="Try ROYAL10 or VHARAT20" uppercase>
+            <button class="btn btn-outline" id="applyCouponBtn" onclick="handleCouponApply()">Apply</button>
+          </div>
+          <small class="coupon-msg" id="couponMsg"></small>
+        </div>
+
+        <!-- Proceed to Checkout -->
+        <a href="checkout.html" class="btn btn-gold btn-block btn-lg" id="proceedCheckoutBtn">
+          Proceed to Order Fulfillment &rarr;
+        </a>
+
+        <!-- Trust Badges -->
+        <div class="summary-assurances">
+          <div class="assurance-row">
+            <span>🛡️ Insured Escrow Transit</span>
+          </div>
+          <div class="assurance-row">
+            <span>⚜️ Verified Guild Authenticity</span>
+          </div>
+          <div class="assurance-row">
+            <span>↺ 7-Day White Glove Exchange</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <h3 class="footer-logo"><span class="logo-accent">VHARAT</span> MOOL</h3>
+        <p class="footer-desc">An artisanal haute-couture house celebrating the zenith of Indian handloom heritage, timeless horology, and modern tailored luxury.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="shop.html">Return to Registry</a></li>
+          <li><a href="cart.html">View Vault (Cart)</a></li>
+          <li><a href="admin.html">Guild Administration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Concierge Desk</h4>
+        <ul>
+          <li>Direct Line: +91 98765 43210</li>
+          <li>Email: concierge@vharatmool.com</li>
+          <li>Complimentary styling assistance on call.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 VHARAT MOOL LUXURY ATELIER PVT LTD. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Dialog System -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-dialog" id="modalDialog">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html
