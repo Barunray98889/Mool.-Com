@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VHARAT MOOL | Luxury Indian Heritage & Modern Fashion</title>
+  <meta name="description" content="Discover exquisite Men's & Women's Fashion, Heritage Timepieces, and Bespoke Accessories at Vharat Mool. Crafted for the distinguished connoisseur.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <!-- Top Notification Bar -->
+  <aside class="top-bar" aria-label="Announcement">
+    <div class="container top-bar-content">
+      <span>COMPLIMENTARY CONCIERGE SHIPPING ON ORDERS OVER ₹2,999</span>
+      <div class="top-bar-links">
+        <a href="#track-order" onclick="openTrackModal(event)">Track Order</a>
+        <span>|</span>
+        <a href="admin.html" class="admin-portal-link">Admin Portal</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="brand-logo" aria-label="Vharat Mool Homepage">
+        <span class="logo-accent">VHARAT</span> MOOL
+        <small class="tagline">HERITAGE LUXURY</small>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="shop.html" class="nav-link">Collections</a>
+        <a href="shop.html?category=men" class="nav-link">Men</a>
+        <a href="shop.html?category=women" class="nav-link">Women</a>
+        <a href="shop.html?category=watches" class="nav-link">Horology</a>
+        <a href="shop.html?category=accessories" class="nav-link">Bespoke Accessories</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Search Trigger & Bar -->
+        <div class="search-box-wrapper">
+          <input type="text" id="searchInput" placeholder="Search handcrafted luxury..." autocomplete="off">
+          <button id="searchBtn" aria-label="Search Catalog">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+          <div class="search-suggestions" id="searchSuggestions"></div>
+        </div>
+
+        <button class="icon-btn" id="authBtn" aria-label="Account Access" onclick="openAuthModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+
+        <a href="cart.html" class="icon-btn cart-badge-wrap" aria-label="Shopping Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main id="main-content">
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <span class="hero-subtitle">AUTUMN / WINTER COLLECTIVE 2026</span>
+        <h1 class="hero-title">Timeless Indian Elegance, Reimagined for the Modern Era.</h1>
+        <p class="hero-description">
+          Exquisite raw silks, regal tailored sherwanis, artisanal chronographs, and curated leather accoutrements — meticulously hand-finished for those who command distinction.
+        </p>
+        <div class="hero-cta-group">
+          <a href="shop.html" class="btn btn-gold">Explore The Collection</a>
+          <a href="shop.html?filter=trending" class="btn btn-outline">View Lookbook</a>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>SCROLL TO DISCOVER</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Value Propositions -->
+    <section class="value-strip">
+      <div class="container value-grid">
+        <div class="value-item">
+          <div class="value-icon">✦</div>
+          <div class="value-text">
+            <h4>Pure Handcrafted Precision</h4>
+            <p>Every piece authenticated by master guild artisans.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">◈</div>
+          <div class="value-text">
+            <h4>Insured Bespoke Transit</h4>
+            <p>Direct door-to-door tamper-proof luxury courier delivery.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">✧</div>
+          <div class="value-text">
+            <h4>7-Day Concierge Exchange</h4>
+            <p>Complimentary alterations and hassle-free returns.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">❖</div>
+          <div class="value-text">
+            <h4>Authenticity Certificate</h4>
+            <p>Serialized cryptographic provenance card with every timepiece.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Categories -->
+    <section class="section categories-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">CURATED DEPARTMENTS</span>
+          <h2 class="section-title">The Vharat Mool Ateliers</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="category-grid">
+          <div class="category-card" onclick="window.location.href='shop.html?category=men'">
+            <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80" alt="Men's Luxury Fashion" loading="lazy">
+            <div class="category-meta">
+              <span class="category-count">18 MASTERWORKS</span>
+              <h3>Men's Couturiere</h3>
+              <p>Hand-woven bandhgalas, raw silk kurtas, and structured wool trench coats.</p>
+              <span class="category-link">Discover Range &rarr;</span>
+            </div>
+          </div>
+
+          <div class="category-card" onclick="window.location.href='shop.html?category=women'">
+            <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=800&q=80" alt="Women's Royal Wear" loading="lazy">
+            <div class="category-meta">
+              <span class="category-count">24 MASTERWORKS</span>
+              <h3>Women's High Fashion</h3>
+              <p>Zari embroidery lehengas, organza drapes, and modern evening silhouettes.</p>
+              <span class="category-link">Discover Range &rarr;</span>
+            </div>
+          </div>
+
+          <div class="category-card" onclick="window.location.href='shop.html?category=watches'">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" alt="Horology & Chronographs" loading="lazy">
+            <div class="category-meta">
+              <span class="category-count">12 TIMEPIECES</span>
+              <h3>Haute Horology</h3>
+              <p>Sapphire crystal tourbillons, automatic skeleton movements, and royal dials.</p>
+              <span class="category-link">Discover Range &rarr;</span>
+            </div>
+          </div>
+
+          <div class="category-card" onclick="window.location.href='shop.html?category=accessories'">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80" alt="Handcrafted Accessories" loading="lazy">
+            <div class="category-meta">
+              <span class="category-count">16 CREATIONS</span>
+              <h3>Fine Accoutrements</h3>
+              <p>Full-grain leather duffels, gold-plated cufflinks, and cashmere stoles.</p>
+              <span class="category-link">Discover Range &rarr;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="section bg-darker">
+      <div class="container">
+        <div class="section-header flex-header">
+          <div>
+            <span class="section-tag">CURATED HIGHLIGHTS</span>
+            <h2 class="section-title">Trending Masterpieces</h2>
+          </div>
+          <a href="shop.html" class="link-underlined">View Full Registry &rarr;</a>
+        </div>
+        <div class="gold-divider"></div>
+
+        <div class="product-grid" id="trendingGrid">
+          <!-- Dynamically populated by js/main.js & products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Editorial Banner -->
+    <section class="editorial-banner">
+      <div class="editorial-media">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1600&q=80" alt="The Royal Heritage Watch Collection" loading="lazy">
+      </div>
+      <div class="editorial-card">
+        <span class="editorial-tag">THE BESPOKE CHRONOGRAPH INITIATIVE</span>
+        <h3>The Rajwada Imperial Automatic 42mm</h3>
+        <p>Engineered with 28,800 VPH high-beat mechanical caliber, Damascus steel skeletonized rotor, and hand-stitched Tuscan alligator strap. Limited edition run of 250 individually numbered pieces.</p>
+        <div class="editorial-price">
+          <span class="old-price">₹42,500</span>
+          <span class="current-price">₹34,999</span>
+          <span class="badge badge-sale">CONNOISSEUR EXCLUSIVE</span>
+        </div>
+        <div class="editorial-cta">
+          <a href="product.html?id=watch-01" class="btn btn-gold">Inspect Timepiece</a>
+          <button class="btn btn-outline" onclick="quickAddToCart('watch-01')">Add to Vault</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">THE MOST COVETED</span>
+          <h2 class="section-title">Best-Selling Collections</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="product-grid" id="bestSellersGrid">
+          <!-- Dynamically populated by js/main.js & products.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="section bg-darker testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">VOICES OF DISTINCTION</span>
+          <h2 class="section-title">Patron Endorsements</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">"The Jodhpur Bandhgala exceeded my bespoke expectations. The drape of the raw silk and the weight of the crest buttons match London Savile Row standards."</p>
+            <div class="testimonial-author">
+              <span class="author-name">Vikramaditya S. Singhania</span>
+              <span class="author-location">New Delhi • Verified Patron</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">"Ordered the Rajwada Chronograph. The package arrived in a solid lacquered teakwood box with an individually signed wax certificate. Magnificent attention to detail."</p>
+            <div class="testimonial-author">
+              <span class="author-name">Kavita R. Nair</span>
+              <span class="author-location">Bengaluru • Verified Patron</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">"Vharat Mool understands genuine luxury: it is quiet, sophisticated, and made to last generations. The Kashmiri Pashmina stole is like woven starlight."</p>
+            <div class="testimonial-author">
+              <span class="author-name">Aryaveer Roy Choudhury</span>
+              <span class="author-location">Kolkata • Verified Patron</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Registration -->
+    <section class="newsletter-section">
+      <div class="container newsletter-box">
+        <span class="newsletter-eyebrow">BY INVITATION & PRIVILEGE</span>
+        <h2>Enter The Vharat Mool Private Society</h2>
+        <p>Subscribe to receive preview invitations to private trunk shows, rare horology allocations, and bespoke styling consultations.</p>
+        <form class="newsletter-form" id="newsletterForm" onsubmit="handleNewsletter(event)">
+          <input type="email" id="newsletterEmail" placeholder="Enter your official email address..." required>
+          <button type="submit" class="btn btn-gold">Request Access</button>
+        </form>
+        <small class="newsletter-privacy">We respect your discretion. You may withdraw membership at any instant.</small>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp Floating Concierge Button -->
+  <a href="https://wa.me/919876543210?text=Hello%20Vharat%20Mool%20Concierge,%20I%20would%20like%20assistance%20with%20an%20order." 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Direct WhatsApp Concierge">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+    </svg>
+    <span class="tooltip">Bespoke Concierge</span>
+  </a>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <h3 class="footer-logo"><span class="logo-accent">VHARAT</span> MOOL</h3>
+        <p class="footer-desc">An artisanal haute-couture house celebrating the zenith of Indian handloom heritage, timeless horology, and modern tailored luxury.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="LinkedIn">LI</a>
+          <a href="#" aria-label="X">X</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ateliers</h4>
+        <ul>
+          <li><a href="shop.html?category=men">Men's Bespoke</a></li>
+          <li><a href="shop.html?category=women">Women's Couture</a></li>
+          <li><a href="shop.html?category=watches">Horology & Chronographs</a></li>
+          <li><a href="shop.html?category=accessories">Fine Accoutrements</a></li>
+          <li><a href="shop.html?filter=new">New Arrivals 2026</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Client Services</h4>
+        <ul>
+          <li><a href="#track-order" onclick="openTrackModal(event)">Track Your Consignment</a></li>
+          <li><a href="#concierge" onclick="openConciergeModal(event)">Private Concierge</a></li>
+          <li><a href="cart.html">View Vault (Cart)</a></li>
+          <li><a href="#returns" onclick="openPolicyModal('returns', event)">Returns & Alterations</a></li>
+          <li><a href="#authenticity" onclick="openPolicyModal('auth', event)">Authenticity Guarantee</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Corporate & Legal</h4>
+        <ul>
+          <li><a href="#about" onclick="openPolicyModal('about', event)">The House Story</a></li>
+          <li><a href="#privacy" onclick="openPolicyModal('privacy', event)">Discretion & Privacy</a></li>
+          <li><a href="#terms" onclick="openPolicyModal('terms', event)">Terms of Engagement</a></li>
+          <li><a href="admin.html">Guild Administration</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 VHARAT MOOL LUXURY ATELIER PVT LTD. ALL RIGHTS RESERVED.</p>
+      <div class="payment-guarantee-badges">
+        <span>VISA</span>
+        <span>MASTERCARD</span>
+        <span>UPI / RUPAY</span>
+        <span>AMEX</span>
+        <span>NETBANKING</span>
+        <span>COD</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Generic Modal System (Used for Auth, Policies, Order Tracking) -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal-dialog" id="modalDialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+    </html>
