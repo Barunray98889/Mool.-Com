@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concierge Checkout | VHARAT MOOL</title>
+  <meta name="description" content="Finalize your luxury consignment with insured white-glove delivery and secure transaction processing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="checkout">
+
+  <!-- Top Bar -->
+  <aside class="top-bar">
+    <div class="container top-bar-content">
+      <span>HIGH-VALUE SHIPMENTS ARE FULLY INSURED UNDER TRANSIT GUARANTEE</span>
+      <div class="top-bar-links">
+        <a href="cart.html">&larr; Return to Vault</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navbar Simple -->
+  <header class="navbar checkout-nav" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-accent">VHARAT</span> MOOL
+        <small class="tagline">HERITAGE LUXURY</small>
+      </a>
+      <div class="checkout-assurance">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Encrypted Concierge Dispatch</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Checkout Workspace -->
+  <main class="container checkout-layout">
+
+    <!-- Form Section -->
+    <div class="checkout-form-section">
+      <form id="checkoutForm" novalidate onsubmit="handlePlaceOrder(event)">
+        
+        <!-- Step 1: Patron Information -->
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="step-num">01</span>
+            <h3>Patron Contact Credentials</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-field full-width">
+              <label for="custName">Full Legal Name *</label>
+              <input type="text" id="custName" name="fullName" placeholder="e.g., Maharaj Vikramaditya Singhania" required>
+              <span class="field-error" id="custNameError"></span>
+            </div>
+
+            <div class="form-field half-width">
+              <label for="custEmail">Email Address (for Dispatch Dossier) *</label>
+              <input type="email" id="custEmail" name="email" placeholder="patron@vharatmool.com" required>
+              <span class="field-error" id="custEmailError"></span>
+            </div>
+
+            <div class="form-field half-width">
+              <label for="custPhone">Mobile Number (SMS Updates & Handover PIN) *</label>
+              <input type="tel" id="custPhone" name="phone" placeholder="+91 98765 43210" pattern="[0-9+\s-]{10,15}" required>
+              <span class="field-error" id="custPhoneError"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Consignment Destination -->
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="step-num">02</span>
+            <h3>Delivery Residence or Atelier</h3>
+          </div>
+          <div class="form-grid">
+            <div class="form-field full-width">
+              <label for="custAddress">Complete Street Address, Estate or Villa *</label>
+              <textarea id="custAddress" name="address" rows="2" placeholder="Suite 401, Royal Palms Enclave, Nariman Point..." required></textarea>
+              <span class="field-error" id="custAddressError"></span>
+            </div>
+
+            <div class="form-field one-third">
+              <label for="custCity">City *</label>
+              <input type="text" id="custCity" name="city" placeholder="Mumbai" required>
+              <span class="field-error" id="custCityError"></span>
+            </div>
+
+            <div class="form-field one-third">
+              <label for="custState">State / Province *</label>
+              <input type="text" id="custState" name="state" placeholder="Maharashtra" required>
+              <span class="field-error" id="custStateError"></span>
+            </div>
+
+            <div class="form-field one-third">
+              <label for="custPincode">PIN / Postal Code *</label>
+              <input type="text" id="custPincode" name="pincode" placeholder="400021" maxlength="6" pattern="[0-9]{6}" required>
+              <span class="field-error" id="custPincodeError"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Sovereign Payment Mode -->
+        <div class="form-card">
+          <div class="form-card-header">
+            <span class="step-num">03</span>
+            <h3>Select Mode of Settlement</h3>
+          </div>
+          
+          <div class="payment-method-selector">
+            <!-- Online Payment Option -->
+            <label class="payment-tile selected" id="tileOnline">
+              <input type="radio" name="paymentMethod" value="ONLINE" checked onchange="switchPaymentTab('ONLINE')">
+              <div class="payment-tile-body">
+                <div class="payment-tile-head">
+                  <span class="payment-name">Online Settlement (Instant Dispatch Priority)</span>
+                  <span class="badge badge-gold">RECOMMENDED</span>
+                </div>
+                <p>Instant clearance via UPI (Google Pay, PhonePe, Paytm), NetBanking, or Credit/Debit Cards.</p>
+                <div class="supported-icons">
+                  <span class="mini-tag">UPI</span>
+                  <span class="mini-tag">CARDS</span>
+                  <span class="mini-tag">NETBANKING</span>
+                </div>
+              </div>
+            </label>
+
+            <!-- Cash On Delivery Option -->
+            <label class="payment-tile" id="tileCOD">
+              <input type="radio" name="paymentMethod" value="COD" onchange="switchPaymentTab('COD')">
+              <div class="payment-tile-body">
+                <div class="payment-tile-head">
+                  <span class="payment-name">Cash on Delivery (Tamper-Proof Courier)</span>
+                </div>
+                <p>Inspect the unbroken wax seal and authenticate the packaging before handing cash to the courier agent.</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Dynamic Payment Drawer for Online Option -->
+          <div class="online-details-drawer" id="onlineDrawer">
+            <div class="gateway-simulation-box">
+              <div class="gateway-header">
+                <span>Integrated Payment Gateway (Mock / Supabase / Razorpay Ready)</span>
+                <span class="ssl-indicator">● 256-Bit SSL Secured</span>
+              </div>
+              <div class="form-grid">
+                <div class="form-field full-width">
+                  <label for="mockCardNumber">Card / UPI ID (Simulation Enabled)</label>
+                  <input type="text" id="mockCardNumber" placeholder="4111 •••• •••• 1111 or patron@upi" value="patron@vharatmool.okaxis">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Special Concierge Instructions -->
+          <div class="form-field full-width" style="margin-top: 20px;">
+            <label for="orderNotes">Bespoke Delivery Instructions (Optional)</label>
+            <input type="text" id="orderNotes" placeholder="e.g., Deliver during business hours, call before arrival.">
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-block btn-lg" id="submitOrderBtn">
+          Authorize & Dispatch Masterwork &rarr;
+        </button>
+      </form>
+    </div>
+
+    <!-- Order Review Sidebar -->
+    <aside class="checkout-review-sidebar">
+      <div class="review-box">
+        <h3 class="summary-title">Consignment Breakdown</h3>
+        <div class="gold-divider"></div>
+
+        <div class="checkout-items-list" id="checkoutItemsList">
+          <!-- Injected via js/checkout.js -->
+        </div>
+
+        <div class="gold-divider"></div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="ckSubtotal">₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Privilege Rebate</span>
+          <span class="text-gold" id="ckDiscount">-₹0</span>
+        </div>
+        <div class="summary-row">
+          <span>Courier Surcharge</span>
+          <span id="ckShipping">FREE</span>
+        </div>
+
+        <div class="gold-divider"></div>
+
+        <div class="summary-total-row">
+          <span>Total Payable</span>
+          <span class="total-figure" id="ckGrandTotal">₹0</span>
+        </div>
+
+        <div class="trust-features">
+          <div class="trust-item">
+            <span>🛡</span> 100% Transit Loss Full Value Insurance
+          </div>
+          <div class="trust-item">
+            <span>📜</span> Physical Certificate of Atelier Provenance
+          </div>
+          <div class="trust-item">
+            <span>↺</span> 7-Day Hassle-Free Concierge Exchange
+          </div>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- Order Confirmation Modal -->
+  <div class="modal-backdrop" id="orderConfirmModal">
+    <div class="modal-dialog modal-order-success">
+      <div class="modal-body text-center">
+        <div class="success-seal">
+          <div class="seal-icon">✦</div>
+        </div>
+        <span class="section-tag">CONSIGNMENT REGISTERED</span>
+        <h2>Masterpiece Dispatch Authorized</h2>
+        <p class="order-ref-text">Order Dossier: <strong id="confirmedOrderId">VM-2026-0000</strong></p>
+        
+        <div class="order-dossier-card">
+          <div class="dossier-row">
+            <span>Consignee:</span>
+            <strong id="confirmedCustName">-</strong>
+          </div>
+          <div class="dossier-row">
+            <span>Amount:</span>
+            <strong id="confirmedAmount">-</strong>
+          </div>
+          <div class="dossier-row">
+            <span>Payment:</span>
+            <strong id="confirmedPaymentMethod">-</strong>
+          </div>
+          <div class="dossier-row">
+            <span>Delivery Destination:</span>
+            <strong id="confirmedAddress">-</strong>
+          </div>
+        </div>
+
+        <p class="delivery-eta">Estimated Delivery: <strong>2 - 4 Business Days</strong> via Insured Priority Air Courier.</p>
+
+        <div class="confirm-cta-group">
+          <a href="index.html" class="btn btn-gold">Return to Salon</a>
+          <a href="admin.html" class="btn btn-outline">Inspect in Admin Portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/main.js"></script>
+</body>
+    </html>
